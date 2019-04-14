@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Task;
 
 class ToDoController extends Controller
 {
     public function index(){
-        return view("index");
+        $tasks = Task::all();
+        //dd($tasks);
+        return view('index', compact('tasks'));
     }
 
     public function edit(){

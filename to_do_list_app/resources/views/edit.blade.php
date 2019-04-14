@@ -9,6 +9,9 @@
             <label for="task">Edit task</label>
             </div>
         </div>
+
+        @include('partials.coworkers')
+
         <a class="waves-effect waves-light btn">Edit task</a>
     </form>
 

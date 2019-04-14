@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>To-do list</title>
+  <title>To Do List App - Developed by Pheakdey Luk</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,8 +14,15 @@
 
     <div class="container">
 
-        <p>Logged as <b>Kevin McCallister</b> <a class="waves-effect waves-light btn">Logout</a></p>
 
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+            <p>Logged as <b>{{ Auth::user()->name}}</b>
+                <button type="submit" class="waves-effect waves-light btn">Logout</button>
+            </p>
+        </form>
+
+        @isAdmin
         <ul class="collapsible">
                 <li>
                   <div class="collapsible-header">
@@ -38,11 +45,12 @@
                     </div>
                 </li>
         </ul>
+        @endisAdmin
 
         <h1 class="center-align green-text text-darken-4">To-do list</h1>
 
         @yield('content');
-        
+
 
     </div>
 
